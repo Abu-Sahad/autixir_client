@@ -10,7 +10,9 @@ const NavBar = () => {
     const commonMenu =
         <>
             <li> <Link className='mr-3' to='/'>Home</Link></li>
-            <li><Link to='/about'>About</Link></li>
+            <li><Link to='/about'>All Toys</Link></li>
+            <li><Link to='/about'>Add A Toy</Link></li>
+            <li><Link to='/about'>blogs</Link></li>
             {/* {user?.email ? <>
                 <li><Link to='/bookings'>Bookings</Link></li>
                 <li><button onClick={handleLogOut}>Log out</button></li>
