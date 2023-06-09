@@ -21,10 +21,9 @@ const NavBar = () => {
         setIsHovered(false);
     };
 
-    const commonMenu = (
+    const commonMenu =
         <>
             <li>
-                {" "}
                 <Link className="mr-3" to="/">
                     Home
                 </Link>
@@ -38,7 +37,7 @@ const NavBar = () => {
                         <Link to="/about">All Toys</Link>
                     </li>
                     <li>
-                        <Link to="/about">Add A Toy</Link>
+                        <Link to="/addToy">Add A Toy</Link>
                     </li>
                     <li>
                         <button onClick={handleLogOut}>Log out</button>
@@ -50,7 +49,6 @@ const NavBar = () => {
                 </li>
             )}
         </>
-    );
 
     return (
         <div>
@@ -85,7 +83,9 @@ const NavBar = () => {
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">{commonMenu}</ul>
+                    <ul className="menu menu-horizontal px-1">
+                        {commonMenu}
+                    </ul>
                 </div>
                 <div className="navbar-end">
                     {user && (
