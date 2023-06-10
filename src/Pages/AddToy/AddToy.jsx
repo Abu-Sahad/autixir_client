@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const AddToy = () => {
+    const { user } = useContext(AuthContext)
 
     const handleAddData = (e) => {
         e.preventDefault()
@@ -15,6 +19,29 @@ const AddToy = () => {
         const subCategory = form.sub_category.value;
         const allData = { pictureName, name, sellerEmail, sellerName, price, rating, availableQuantity, detailsDescription, subCategory }
         console.log(allData)
+
+        fetch('http://localhost:5000/addToy', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(allData)
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data?.insertedId) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Sport Car Book Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+                form.reset()
+                console.log(data)
+            })
     }
     return (
         <div className="mt-5 bg-white rounded-lg shadow-lg p-6">
@@ -33,11 +60,15 @@ const AddToy = () => {
                 <div className="grid grid-cols-2 gap-6 mt-4">
                     <div>
                         <label htmlFor="seller_email" className="block">Seller Name:</label>
-                        <input type="text" id="seller_name" name="seller_name" className="w-full border border-gray-300 rounded py-2 px-4" />
+                        <input type="text" id="seller_name" name="seller_name"
+                            defaultValue={user?.displayName}
+                            className="w-full border border-gray-300 rounded py-2 px-4" />
                     </div>
                     <div>
                         <label htmlFor="seller_email" className="block">Seller Email:</label>
-                        <input type="email" id="seller_email" name="seller_email" className="w-full border border-gray-300 rounded py-2 px-4" />
+                        <input type="email" id="seller_email" name="seller_email"
+                            defaultValue={user?.email}
+                            className="w-full border border-gray-300 rounded py-2 px-4" />
                     </div>
 
                 </div>

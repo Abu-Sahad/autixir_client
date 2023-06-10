@@ -4,6 +4,9 @@ import Home from "../Pages/Home/Home/Home";
 import LogIn from "../Pages/LogIn/LogIn";
 import SingUp from "../Pages/SingUp/SingUp";
 import AddToy from "../Pages/AddToy/AddToy";
+import ShowToy from "../Pages/ShowToy/ShowToy";
+import SingleToy from "../Pages/SingleToy/SingleToy";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -27,6 +30,17 @@ const router = createBrowserRouter([
                 path: '/addToy',
                 element: <AddToy></AddToy>,
             },
+            {
+                path: '/showToy',
+                element: <ShowToy></ShowToy>,
+                loader: () => fetch('http://localhost:5000/addToy')
+            },
+            {
+                path: '/addToy/:id',
+                element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/addToy/${params.id}`)
+            },
+
         ],
     },
 ]);

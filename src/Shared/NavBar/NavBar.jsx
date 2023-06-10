@@ -31,10 +31,13 @@ const NavBar = () => {
             <li>
                 <Link to="/about">blogs</Link>
             </li>
+            <li>
+                <Link to="/showToy">All Toys</Link>
+            </li>
             {user?.email ? (
                 <>
                     <li>
-                        <Link to="/about">All Toys</Link>
+                        <Link to="/myToy">My Toys</Link>
                     </li>
                     <li>
                         <Link to="/addToy">Add A Toy</Link>
