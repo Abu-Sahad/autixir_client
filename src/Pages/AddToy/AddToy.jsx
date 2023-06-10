@@ -10,14 +10,14 @@ const AddToy = () => {
         const form = e.target
         const pictureName = form.picture_name.value;
         const name = form.name.value;
-        const sellerEmail = form.seller_email.value;
+        const email = form.email.value;
         const sellerName = form.seller_name.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const availableQuantity = form.available_quantity.value;
         const detailsDescription = form.details_description.value;
         const subCategory = form.sub_category.value;
-        const allData = { pictureName, name, sellerEmail, sellerName, price, rating, availableQuantity, detailsDescription, subCategory }
+        const allData = { pictureName, name,email, sellerName, price, rating, availableQuantity, detailsDescription, subCategory }
         console.log(allData)
 
         fetch('http://localhost:5000/addToy', {
@@ -66,7 +66,7 @@ const AddToy = () => {
                     </div>
                     <div>
                         <label htmlFor="seller_email" className="block">Seller Email:</label>
-                        <input type="email" id="seller_email" name="seller_email"
+                        <input type="email" id="seller_email" name="email"
                             defaultValue={user?.email}
                             className="w-full border border-gray-300 rounded py-2 px-4" />
                     </div>
