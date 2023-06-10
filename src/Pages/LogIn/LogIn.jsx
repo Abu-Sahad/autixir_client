@@ -1,16 +1,15 @@
 import { useContext } from "react";
-import { Link,useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const LogIn = () => {
-    const { signInUser } = useContext(AuthContext)
-    const location=useLocation()
-    const navigate=useNavigate()
+    const { signInUser, googleSignIn } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/';
     const handleLogInSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
-        const from = location.state?.from?.pathname || '/';
-
         const email = form.email.value;
         const password = form.password.value;
 
@@ -26,6 +25,16 @@ const LogIn = () => {
                 console.log(error)
             })
     }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(() => {
+                navigate(from, { replace: true });
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    };
     return (
         <div>
             <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
@@ -68,12 +77,12 @@ const LogIn = () => {
                                 />
                             </div>
                         </div>
-                        <a
+                        {/* <a
                             href="#"
                             className="text-xs text-purple-600 hover:underline"
                         >
                             Forget Password?
-                        </a>
+                        </a> */}
                         <div className="flex items-center mt-4">
                             <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
                                 Register
@@ -84,7 +93,7 @@ const LogIn = () => {
                         Autixir Create an Account?{" "}
                         <span>
                             <Link to='/singUp' className="text-purple-600 hover:underline">
-                                SingUp
+                                LogIn
                             </Link>
                         </span>
                     </div>
@@ -94,7 +103,7 @@ const LogIn = () => {
                         <hr className="w-full" />
                     </div>
                     <div className="my-6 space-y-2">
-                        <button
+                        <button onClick={handleGoogleSignIn}
                             aria-label="Login with Google"
                             type="button"
                             className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"

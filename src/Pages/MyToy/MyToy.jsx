@@ -66,7 +66,7 @@ const MyToy = () => {
 
     return (
         <div>
-            <h1 className="text-center text-4xl text-amber-400  mt-5 mb-10">My Toy:{myData.length}</h1>
+            <h1 className="text-center text-4xl font-bold text-amber-400  mt-5 mb-10">My Toy:{myData.length}</h1>
             <div className="mb-10">
                 <div className="overflow-x-auto">
                     <table className="table">
