@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const MyToy = () => {
     const [myData, setMyData] = useState([]);
     const { user } = useContext(AuthContext);
-    const url = user ? `http://localhost:5000/addToy/email?email=${user.email}` : "";
+    const url = user ? `https://autixir-two.vercel.app/addToy/email?email=${user.email}` : "";
 
     useEffect(() => {
         if (user) {
@@ -30,7 +30,7 @@ const MyToy = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/addToy/${id}`, {
+                    fetch(`https://autixir-two.vercel.app/addToy/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => {
@@ -95,7 +95,7 @@ const MyToy = () => {
 
 
 
-                                </tbody>
+                        </tbody>
 
                     </table>
                 </div>

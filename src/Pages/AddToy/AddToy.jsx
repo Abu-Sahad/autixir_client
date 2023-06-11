@@ -17,10 +17,10 @@ const AddToy = () => {
         const availableQuantity = form.available_quantity.value;
         const detailsDescription = form.details_description.value;
         const subCategory = form.sub_category.value;
-        const allData = { pictureName, name,email, sellerName, price, rating, availableQuantity, detailsDescription, subCategory }
+        const allData = { pictureName, name, email, sellerName, price, rating, availableQuantity, detailsDescription, subCategory }
         console.log(allData)
 
-        fetch('http://localhost:5000/addToy', {
+        fetch('https://autixir-two.vercel.app/addToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

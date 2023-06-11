@@ -14,7 +14,7 @@ const UpdatedToy = () => {
         const toyAll = { price, availableQuantity, detailsDescription };
         console.log(toyAll);
 
-        fetch(`http://localhost:5000/addToy/${_id}`, {
+        fetch(`https://autixir-two.vercel.app/addToy/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const SobByCategory = () => {
     const [toyCategories, setToyCategories] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/addToy')
+        fetch('https://autixir-two.vercel.app/addToy')
             .then(res => res.json())
             .then(data => {
                 const toysAllData = data.filter(toy => toy.subCategory == 'truck cars');
@@ -16,7 +16,7 @@ const SobByCategory = () => {
 
 
     const handleTruckCars = () => {
-        fetch('http://localhost:5000/addToy')
+        fetch('https://autixir-two.vercel.app/addToy')
             .then(res => res.json())
             .then(data => {
                 const toysAllData = data.filter(toy => toy.subCategory == 'truck cars');
@@ -25,7 +25,7 @@ const SobByCategory = () => {
             });
     }
     const handleRegularCars = () => {
-        fetch('http://localhost:5000/addToy')
+        fetch('https://autixir-two.vercel.app/addToy')
             .then(res => res.json())
             .then(data => {
                 const toysAllData = data.filter(toy => toy.subCategory == 'regular cars');
@@ -34,7 +34,7 @@ const SobByCategory = () => {
             });
     }
     const handleMiniCars = () => {
-        fetch('http://localhost:5000/addToy')
+        fetch('https://autixir-two.vercel.app/addToy')
             .then(res => res.json())
             .then(data => {
                 const toysAllData = data.filter(toy => toy.subCategory == 'mini police cars');

@@ -35,12 +35,12 @@ const router = createBrowserRouter([
             {
                 path: '/showToy',
                 element: <ShowToy></ShowToy>,
-                loader: () => fetch('http://localhost:5000/addToy')
+                loader: () => fetch('https://autixir-two.vercel.app/addToy')
             },
             {
                 path: '/addToy/:id',
                 element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/addToy/${params.id}`)
+                loader: ({ params }) => fetch(`https://autixir-two.vercel.app/addToy/${params.id}`)
             },
             {
                 path: '/myToy',
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
             {
                 path: '/updateToy/:id',
                 element: <PrivateRoute><UpdatedToy></UpdatedToy></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/addToy/${params.id}`)
+                loader: ({ params }) => fetch(`https://autixir-two.vercel.app/addToy/${params.id}`)
             },
 
         ],

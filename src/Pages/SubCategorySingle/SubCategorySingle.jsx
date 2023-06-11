@@ -1,23 +1,25 @@
-// import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-//import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const SubCategorySingle = ({ toy }) => {
-    //const history = useHistory();
+    const navigate = useNavigate()
     const getStarRating = (rating) => {
         const starCount = Math.round(rating);
         return '★'.repeat(starCount) + '☆'.repeat(5 - starCount);
     };
-    // const handleViewDetails = () => {
-    //     if (!isLoggedIn()) {
-    //         toast.error('You have to log in first to view details');
-    //         history.push('/login');
-    //     }
-    // };
+    const handleViewDetails = () => {
+        if (!isLoggedIn()) {
+            toast.error('You have to log in first to view details');
+            setTimeout(() => {
+                navigate('/login');
+            }, 2000);
+        }
+    };
 
-    // const isLoggedIn = () => {
+    const isLoggedIn = () => {
 
-    //     return false;
-    // };
+        return false;
+    };
 
     return (
         <div className="card bg-white shadow-lg rounded-lg overflow-hidden">
@@ -29,8 +31,9 @@ const SubCategorySingle = ({ toy }) => {
                     <span className="text-yellow-500 mr-1">{getStarRating(toy.rating)}</span>
                     <span className="text-gray-600">{toy.rating}</span>
                 </div>
-                <button className="btn btn-primary">View Details</button>
+                <button className="btn btn-primary" onClick={handleViewDetails}>View Details</button>
             </div>
+            <ToastContainer/>
         </div>
     );
 };
