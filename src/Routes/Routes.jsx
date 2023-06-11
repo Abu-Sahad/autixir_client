@@ -9,6 +9,7 @@ import SingleToy from "../Pages/SingleToy/SingleToy";
 import PrivateRoute from "./PrivateRoute";
 import MyToy from "../Pages/MyToy/MyToy";
 import UpdatedToy from "../Pages/UpdatedToy/UpdatedToy";
+import NotFound from "../Pages/NotFound/NotFound";
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
                 path: '/updateToy/:id',
                 element: <PrivateRoute><UpdatedToy></UpdatedToy></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://autixir-two.vercel.app/addToy/${params.id}`)
+            },
+            {
+                path: '*',
+                element: <NotFound></NotFound>
             },
 
         ],

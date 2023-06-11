@@ -18,7 +18,23 @@ const AddToy = () => {
         const detailsDescription = form.details_description.value;
         const subCategory = form.sub_category.value;
         const allData = { pictureName, name, email, sellerName, price, rating, availableQuantity, detailsDescription, subCategory }
-        console.log(allData)
+        //console.log(allData)
+        if (
+            !pictureName ||
+            !name ||
+            !email ||
+            !sellerName ||
+            !price ||
+            !rating ||
+            !availableQuantity ||
+            !detailsDescription ||
+            !subCategory
+        ) {
+            // Display an error message or perform any other desired action
+            alert('Please fill in all the fields');
+            return;
+        }
+
 
         fetch('https://autixir-two.vercel.app/addToy', {
             method: 'POST',
