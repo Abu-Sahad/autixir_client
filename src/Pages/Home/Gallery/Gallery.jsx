@@ -11,7 +11,8 @@ const Gallery = () => {
     const images = [img1, img2, img3, img4, img5, img6];
 
     return (
-        <div><h1 className="text-center text-4xl font-bold text-amber-400  mt-5 mb-10">Toy Sports Cars gallery</h1>
+        <div className='max-w-7xl mx-auto'>
+            <h1 className="text-center text-4xl font-bold text-amber-400  mt-5 mb-10">Toy Sports Cars gallery</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {images.map((image, index) => (
                     <div key={index} className="p-4 shadow">

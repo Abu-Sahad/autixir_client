@@ -43,7 +43,7 @@ const SobByCategory = () => {
             });
     }
     return (
-        <div>
+        <div className="max-w-7xl mx-auto">
             <h1 className="text-center text-4xl font-bold text-amber-400  mt-5 mb-10">Toy Sports Cars Category</h1>
             <div>
                 <Tabs>

@@ -5,6 +5,7 @@ import img4 from '../../assets/shipping/7-support.svg';
 
 const ShippingPage = () => {
     return (
+        <div className='max-w-7xl mx-auto'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="flex flex-col bg-white rounded-lg shadow-md p-4 mx-4 my-4 md:mx-4 md:my-4 lg:mx-4 lg:my-4">
                 <img src={img1} alt="" className="w-16 h-16 mb-4" />
@@ -42,6 +43,7 @@ const ShippingPage = () => {
                     </h2>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
